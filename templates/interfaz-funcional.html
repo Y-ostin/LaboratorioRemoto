@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Motores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Control de Motores Paso a Paso</h1>
+
+<!-- Motor 1 -->
+<h2>Motor 1</h2>
+<button onclick="moverMotor1('forward')">Adelante</button>
+<button onclick="moverMotor1('backward')">Atr�s</button>
+
+<!-- Motor 2 -->
+<h2>Motor 2</h2>
+<button onclick="moverMotor2('forward')">Adelante</button>
+<button onclick="moverMotor2('backward')">Atr�s</button>
+
+<script>
+    function moverMotor1(direction) {
+        let url = direction === 'forward' ? '/mover_motor_1_forward' : '/mover_motor_1_backward';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(error => alert('Error al mover el motor 1'));
+    }
+
+    function moverMotor2(direction) {
+        let url = direction === 'forward' ? '/mover_motor_2_forward' : '/mover_motor_2_backward';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(error => alert('Error al mover el motor 2'));
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Motores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Control de Motores Paso a Paso</h1>
+
+<!-- Motor 1 -->
+<h2>Motor 1</h2>
+<button onclick="moverMotor1('forward')">Adelante</button>
+<button onclick="moverMotor1('backward')">Atr�s</button>
+
+<!-- Motor 2 -->
+<h2>Motor 2</h2>
+<button onclick="moverMotor2('forward')">Adelante</button>
+<button onclick="moverMotor2('backward')">Atr�s</button>
+
+<script>
+    function moverMotor1(direction) {
+        let url = direction === 'forward' ? '/mover_motor_1_forward' : '/mover_motor_1_backward';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(error => alert('Error al mover el motor 1'));
+    }
+
+    function moverMotor2(direction) {
+        let url = direction === 'forward' ? '/mover_motor_2_forward' : '/mover_motor_2_backward';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(error => alert('Error al mover el motor 2'));
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Motores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Control de Motores Paso a Paso</h1>
+
+<!-- Motor 1 -->
+<h2>Motor 1</h2>
+<button onclick="moverMotor1('forward')">Adelante</button>
+<button onclick="moverMotor1('backward')">Atr�s</button>
+
+<!-- Motor 2 -->
+<h2>Motor 2</h2>
+<button onclick="moverMotor2('forward')">Adelante</button>
+<button onclick="moverMotor2('backward')">Atr�s</button>
+
+<script>
+    function moverMotor1(direction) {
+        let url = direction === 'forward' ? '/mover_motor_1_forward' : '/mover_motor_1_backward';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(error => alert('Error al mover el motor 1'));
+    }
+
+    function moverMotor2(direction) {
+        let url = direction === 'forward' ? '/mover_motor_2_forward' : '/mover_motor_2_backward';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(error => alert('Error al mover el motor 2'));
+    }
+</script>
+
+</body>
+</html>
