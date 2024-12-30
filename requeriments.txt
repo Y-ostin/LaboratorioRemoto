@@ -31,7 +31,7 @@ distro==1.8.0
 docutils==0.19
 entrypoints==0.4
 executing==1.2.0
-flask==2.2.2
+flask==2.2.3
 Flask==2.2.2
 Flask-SocketIO==5.3.2
 fonttools==4.38.0
