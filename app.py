@@ -14,12 +14,12 @@ arduino=None
 PUERTO_ARDUINO = '/dev/ttyUSB0'
 BAUD_RATE = 9600 
 
-# Funcion para iniciar la conexion serial qcon el Arduino
+# iniciar la conexion serial qcon el Arduino
 def inicializar_arduino():
     global arduino
     try:
         arduino = serial.Serial(PUERTO_ARDUINO, BAUD_RATE, timeout=1)
-        time.sleep(2)  # Esperamos un momento para asegurarnos de que la conexi�n est� establecida
+        time.sleep(2)  # Esperamos un momento para asegurarnos de que la conexion esta establecida
         print(f"Conexion exitosa con Arduino en {PUERTO_ARDUINO}")
     except Exception as e:
         print(f"Error al conectar con Arduino: {e}")
@@ -75,7 +75,7 @@ def send_to_arduino(data, tipo):
     global arduino
     if arduino and arduino.is_open:
         try:
-            # Formatear el mensaje en funci�n del tipo de dato
+            # Formatear el mensaje en funcion del tipo de dato
             if tipo == "altura":
                 mensaje = f"r{data}\n"  # Para la altura
             elif tipo == "kp":
@@ -88,14 +88,13 @@ def send_to_arduino(data, tipo):
                 print("Tipo de dato desconocido")
                 return
 
-            print(f"Enviando al Arduino: {mensaje}")  # Log para depuraci�n
+            print(f"Enviando al Arduino: {mensaje}")  # Log para depuracion
             arduino.write(mensaje.encode())  # Enviar como bytes
         except Exception as e:
             print(f"Error al enviar datos al Arduino: {e}")
-            # Opcional: Relanzar la excepci�n si es cr�tico
             raise
     else:
-        print("Arduino no conectado o el puerto no est� abierto. Verifica la conexi�n.")
+        print("Arduino no conectado o el puerto no este abierto. Verifica la conexion.")
 
 
 # Ruta para definir altura
@@ -104,7 +103,7 @@ def set_altura():
     altura = request.form.get('altura')
     print(f"Altura recibida en Flask: {altura}")  # Imprime la altura recibida para verificar
     if altura:
-        # Llamamos a la funci�n de env�o con la altura en formato de texto directo
+        # Llamamos a la funcion de envio con la altura en formato de texto directo
         send_to_arduino(altura, "altura")
         return jsonify({'status': 'Altura recibida', 'valor': altura})
     else:
@@ -149,7 +148,7 @@ if __name__ == '__main__':
 
     # Iniciar la camara en un hilo separado 
     camara_thread = threading.Thread(target=iniciar_camara_en_hilo)
-    camara_thread.daemon = True  # Permite que el hilo se cierre 
+    camara_thread.daemon = True  
     camara_thread.start()
     
 

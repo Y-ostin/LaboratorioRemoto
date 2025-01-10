@@ -17,7 +17,7 @@ motor1_dir = OutputDevice(DIR_MOTOR_1)
 motor1_step = OutputDevice(STEP_MOTOR_1)
 
 # Configuracion del motor de corriente continua (Motor 2)
-motor2_dir = OutputDevice(DIR_MOTOR_2)  # Direcci�n
+motor2_dir = OutputDevice(DIR_MOTOR_2)  # Direccion
 motor2_enable = PWMOutputDevice(PWM_MOTOR_2)  # Velocidad (PWM)
 
 # Sensores de fin de carrera
@@ -26,7 +26,7 @@ fin_carril_der = Button(LIMITE_DER, pull_up=True)
 
 
 
-# Funci�n para mover el motor
+# Funcion para mover el motor
 def mover_motor(step_pin, steps, delay):
     for _ in range(steps):
         step_pin.on()
@@ -34,7 +34,7 @@ def mover_motor(step_pin, steps, delay):
         step_pin.off()
         sleep(delay)
 
-# Funci�n para mover el motor con l�mites de carrera
+# Funcion para mover el motor con limites de carrera
 def mover_motor_con_limite(step_pin, steps, delay, limite, direccion):
     for _ in range(steps):
         if direccion == 'izq' and fin_carril_izq.is_pressed:
@@ -52,25 +52,25 @@ def mover_motor_con_limite(step_pin, steps, delay, limite, direccion):
 
     return True
 
-# Funci�n en hilo para mover los motores
+# Funcion en hilo para mover los motores
 def motor_thread(motor_dir, motor_step, steps, delay):
     mover_motor(motor_step, steps, delay)
 
-# Funciones p�blicas para mover los motores
+# Funciones publicas para mover los motores
 def mover_motor_1_forward():
-    motor1_dir.on()  # Direcci�n hacia adelante
-    motor_thread_1 = threading.Thread(target=motor_thread, args=(motor1_dir, motor1_step, 200, 0.001))
+    motor1_dir.on()  # Direccion hacia adelante
+    motor_thread_1 = threading.Thread(target=motor_thread, args=(motor1_dir, motor1_step, 200, 0.0005))
     motor_thread_1.start()
 
 def mover_motor_1_backward():
-    motor1_dir.off()  # Direcci�n hacia atr�s
-    motor_thread_1 = threading.Thread(target=motor_thread, args=(motor1_dir, motor1_step, 200, 0.001))
+    motor1_dir.off()  # Direccion hacia atras
+    motor_thread_1 = threading.Thread(target=motor_thread, args=(motor1_dir, motor1_step, 200, 0.0005))
     motor_thread_1.start()
 
 # Funciones para controlar el motor de corriente continua (Motor 2)
 def mover_motor_2_forward():
     if not fin_carril_der.is_pressed:
-        motor2_dir.off()  # Direcci�n hacia adelante
+        motor2_dir.off()  # Direccion hacia adelante
         motor2_enable.on()
         return {"status": "Motor 2 avanzando", "limite_alcanzado": False}
     else:
@@ -79,7 +79,7 @@ def mover_motor_2_forward():
 
 def mover_motor_2_backward():
     if not fin_carril_izq.is_pressed:
-        motor2_dir.on()  # Direcci�n hacia atr�s
+        motor2_dir.on()  # Direccion hacia atras
         motor2_enable.off()
         return {"status": "Motor 2 retrocediendo", "limite_alcanzado": False}
     else:

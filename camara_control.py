@@ -1,3 +1,5 @@
+import signal
+import sys
 import cv2
 import threading
 from flask import Response
@@ -35,8 +37,11 @@ def generar_video():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_data + b'\r\n\r\n')
 
-# Detener la camara de manera segura
+# Detener la camara 
 def detener_camara():
     global cap
     if cap is not None and cap.isOpened():
         cap.release()
+    sys.exit(0)
+
+
